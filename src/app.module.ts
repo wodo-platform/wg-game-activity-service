@@ -12,10 +12,6 @@ import { RouterModule, Routes, RouteTree } from '@nestjs/core';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 
 
-
-
-
-
 @Module({
   imports: [
     ConfigModule.forRoot({isGlobal: true}),
@@ -36,19 +32,12 @@ import { APP_INTERCEPTOR } from '@nestjs/core';
       logging: console.log, 
 }),
 EventEmitterModule.forRoot({
-  // set this to `true` to use wildcards
   wildcard: true,
-  // the delimiter used to segment namespaces
   delimiter: '.',
-  // set this to `true` if you want to emit the newListener event
   newListener: true,
-  // set this to `true` if you want to emit the removeListener event
   removeListener: true,
-  // the maximum amount of listeners that can be assigned to an event
   maxListeners: 20,
-  // show event name in memory leak message when more than maximum amount of listeners is assigned
   verboseMemoryLeak: true,
-  // disable throwing uncaughtException if an error event is emitted and it has no listeners
   ignoreErrors: false,
 }),
     GameActivityModule, 

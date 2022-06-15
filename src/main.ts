@@ -19,7 +19,7 @@ async function bootstrap() {
 
   const configs = new DocumentBuilder()
     .setTitle('Wodo Game Activity API')
-    .setDescription('Wodo Game Activity microservice in order to handle business logic for game lounge and game server relaated cases.')
+    .setDescription('Wodo Game Activity microservice in order to handle business logic for game servers and game hub relaated cases.')
     .setVersion('1.0')
     .setBasePath('api')
     .addBearerAuth()
@@ -33,3 +33,11 @@ async function bootstrap() {
   
 }
 bootstrap();
+
+// sequlize database
+// userid string, statatus number, description string
+// entity objesi, mysql databese
+// game_activities db instance
+// user_status table name
+// create, update, delete, read
+// readme.md 
