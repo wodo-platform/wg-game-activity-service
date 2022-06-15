@@ -1,7 +1,6 @@
 import { UserStatusEnum } from "../enums/user-status-enum";
 
-export class UserStatus {
+export class UserStatusDto {
     status : UserStatusEnum;
-    description: string;
-     
+    description: string;    
   }

@@ -1,7 +1,7 @@
-import { UserStatus } from "./user-status";
+import { UserStatusDto } from "./user-status.dto";
 
 export class CreateUserStatusDto {
     userUid: string;
     gameUid: string;
-    status: UserStatus;
+    status: UserStatusDto;
 }

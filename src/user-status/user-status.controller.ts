@@ -9,6 +9,7 @@ export class UserStatusController {
 
   @Post()
   create(@Body() createUserStatusDto: CreateUserStatusDto) {
+    
     return this.userStatusService.create(createUserStatusDto);
   }
 

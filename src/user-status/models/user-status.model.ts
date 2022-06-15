@@ -1,8 +1,9 @@
 import { Column, Model, NotNull, PrimaryKey, Table } from 'sequelize-typescript';
 import { STRING} from 'sequelize/types';
+import { UserStatusDto } from '../dto/user-status.dto';
 
 @Table({ tableName: "USER_STATUS", version: true, timestamps: true, paranoid:false, omitNull: true})
-export class UserStatus extends Model {
+export class UserStatusModel extends Model {
 
     @PrimaryKey
     @Column({allowNull:false})
@@ -12,6 +13,9 @@ export class UserStatus extends Model {
     gameUid!: string;
 
     @Column({allowNull:false})
-    status!: string;
+    status!: number;
+
+    @Column({allowNull:false})
+    description!: string;
 
 }

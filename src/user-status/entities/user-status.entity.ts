@@ -1,8 +1,9 @@
+import { UserStatusDto } from "../dto/user-status.dto";
 
-export class UserStatus {
+
+export class UserStatusEntity {
     userUid: string;
     gameUid: string;
-    status: UserStatus;
+    status: UserStatusDto;
 }
-
 
