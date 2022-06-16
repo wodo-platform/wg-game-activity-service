@@ -4,8 +4,13 @@ import { CreateUserStatusDto } from '../dto/create-user-status.dto';
 import { UpdateUserStatusDto } from '../dto/update-user-status.dto';
 import { UserStatusRepo } from '../repos/user-status.repo';
 import { InjectModel } from '@nestjs/sequelize';
+import { UserStatusEntity } from '../entities/user-status.entity';
+import { USDtoMapper } from '../utils/user-status-dto.mapper';
+import { UserStatusDto } from '../dto/user-status.dto';
 
-
+/**
+ *  Service class to implement busness logic
+ */
 @Injectable()
 export class UserStatusService {
 
@@ -22,25 +27,29 @@ export class UserStatusService {
 
   
 
-  create(createUserStatusDto: CreateUserStatusDto) {
-    this.userStatusRepo.create(createUserStatusDto);
-    
-    return 'This action adds a new userStatus';
+  async create(createUserStatusDto: CreateUserStatusDto): Promise<UserStatusDto> {
+    let result: UserStatusEntity = await this.userStatusRepo.create(createUserStatusDto);
+    let dto:UserStatusDto = USDtoMapper.toUserStatusDto(result);
+    return dto;
   }
 
-  findAll() {
-    return `This action returns all userStatus`;
+  async findAll():  Promise<UserStatusDto[]> {
+    let result: UserStatusEntity[] = await this.userStatusRepo.findAll();
+    let dtos:UserStatusDto[] = USDtoMapper.toUserStatusDtos(result);
+    return dtos;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} userStatus`;
+  async findOne(userUid: string):  Promise<UserStatusDto> {
+    let result: UserStatusEntity = await this.userStatusRepo.findOne(userUid);
+    let dto:UserStatusDto = USDtoMapper.toUserStatusDto(result);
+    return dto;
   }
 
-  update(id: number, updateUserStatusDto: UpdateUserStatusDto) {
+  async update(id: number, updateUserStatusDto: UpdateUserStatusDto) {
     return `This action updates a #${id} userStatus`;
   }
 
-  remove(id: number) {
+  async remove(id: number) {
     return `This action removes a #${id} userStatus`;
   }
 }

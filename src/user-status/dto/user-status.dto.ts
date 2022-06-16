@@ -1,6 +1,10 @@
 import { UserStatusEnum } from "../enums/user-status-enum";
 
 export class UserStatusDto {
-    status : UserStatusEnum;
-    description: string;    
+    userUid: string;
+    gameUid: string;
+    statusCode : UserStatusEnum;
+    description: string;
+    createdAt: Date;
+    updatedAt: Date;
   }
