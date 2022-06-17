@@ -3,7 +3,6 @@ import { EventEmitter2 } from "@nestjs/event-emitter";
 import { CreateUserStatusDto } from '../dto/create-user-status.dto';
 import { UpdateUserStatusDto } from '../dto/update-user-status.dto';
 import { UserStatusRepo } from '../repos/user-status.repo';
-import { InjectModel } from '@nestjs/sequelize';
 import { UserStatusEntity } from '../entities/user-status.entity';
 import { USDtoMapper } from '../utils/user-status-dto.mapper';
 import { UserStatusDto } from '../dto/user-status.dto';

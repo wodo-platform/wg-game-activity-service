@@ -16,28 +16,22 @@ async function bootstrap() {
   
   app.useLogger(app.get(Logger));
   app.enableShutdownHooks();
+  app.setGlobalPrefix('/api')
 
   const configs = new DocumentBuilder()
     .setTitle('Wodo Game Activity API')
-    .setDescription('Wodo Game Activity microservice in order to handle business logic for game servers and game hub relaated cases.')
+    .setDescription('Wodo Game Activity microservice in order to handle business logic for game servers and game hub related cases.')
     .setVersion('1.0')
-    .setBasePath('api')
+    .setBasePath('/api')
     .addBearerAuth()
     .build();
 
   const document = SwaggerModule.createDocument(app, configs);
-  SwaggerModule.setup('/docs', app, document);
+  SwaggerModule.setup('docs', app, document);
+  
 
-  app.setGlobalPrefix('api')
+  
   await app.listen(3002);
   
 }
 bootstrap();
-
-// sequlize database
-// userid string, statatus number, description string
-// entity objesi, mysql databese
-// game_activities db instance
-// user_status table name
-// create, update, delete, read
-// readme.md 
